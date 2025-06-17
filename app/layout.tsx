@@ -9,13 +9,13 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: {
-    default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
+    default: "Oisamaye",
+    template: `%s - Oisamaye`,
   },
-  description: siteConfig.description,
+  description: "A passionate Web Developer building beautiful and functional web experiences.",
   keywords: siteConfig.keywords,
   authors: siteConfig.authors,
-  creator: siteConfig.creator,
+  creator: "Ovioisa Oisamaye Benjamin",
   metadataBase: siteConfig.metadataBase,
   openGraph: {
     type: "website",
