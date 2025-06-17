@@ -9,8 +9,8 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: {
-    default: "Oisamaye",
-    template: `%s - Oisamaye`,
+    default: "Oisamaye's Portfolio",
+    template: `%s - Oisamaye's Portfolio`,
   },
   description: "A passionate Web Developer building beautiful and functional web experiences.",
   keywords: siteConfig.keywords,
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteConfig.url,
-    title: siteConfig.name,
+    title: "Oisamaye's Portfolio",
     description: siteConfig.description,
-    siteName: siteConfig.name,
+    siteName: "Oisamaye's Portfolio",
     images: [
       {
         url: siteConfig.ogImage,
@@ -35,15 +35,15 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.name,
+    title: "Oisamaye's Portfolio",
     description: siteConfig.description,
     images: [siteConfig.ogImage],
     creator: siteConfig.author.twitter,
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
+    icon: "https://res.cloudinary.com/du2dk0zua/image/upload/v1750166915/hero_ekswna.jpg",
+    shortcut: "https://res.cloudinary.com/du2dk0zua/image/upload/v1750166915/hero_ekswna.jpg",
+    apple: "https://res.cloudinary.com/du2dk0zua/image/upload/v1750166915/hero_ekswna.jpg",
   },
   manifest: "/site.webmanifest",
     generator: 'v0.dev'
