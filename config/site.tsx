@@ -11,7 +11,7 @@ export const siteConfig = {
   creator: "Ovioisa Oisamaye Benjamin",
   keywords: [
     "web developer",
-    "frontend developer",
+    "frontend developer", 
     "react developer",
     "next.js developer",
     "portfolio",
