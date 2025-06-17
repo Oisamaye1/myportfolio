@@ -1,8 +1,8 @@
 export const siteConfig = {
-  name: "Benjamin Portfolio",
+  name: "Oisamaye",
   description: "A passionate Web Developer building beautiful and functional web experiences.",
   url: "https://oisamaye.vercel.app/",
-  ogImage: "https://your-domain.com/og.jpg",
+  ogImage: "https://res.cloudinary.com/du2dk0zua/image/upload/v1750166915/hero_ekswna.jpg",
   links: {
     twitter: "",
     github: "https://github.com/Oisamaye1",
