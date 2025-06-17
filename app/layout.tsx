@@ -9,8 +9,8 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: {
-    default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
+    default: "Oisamaye's Portfolio",
+    template: `%s - Oisamaye's Portfolio`,
   },
   description: siteConfig.description,
   keywords: siteConfig.keywords,
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteConfig.url,
-    title: siteConfig.name,
+    title: "Oisamaye's Portfolio",
     description: siteConfig.description,
-    siteName: siteConfig.name,
+    siteName: "Oisamaye's Portfolio",
     images: [
       {
         url: siteConfig.ogImage,
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.name,
+    title: "Oisamaye's Portfolio",
     description: siteConfig.description,
     images: [siteConfig.ogImage],
     creator: "@oisamaye",
