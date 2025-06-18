@@ -13,15 +13,16 @@ export async function generateMetadata(): Promise<Metadata> {
     const settings = await getSiteSettings()
 
     // Fallback values
-    const siteName = settings.site_name || "Oisamaye"
-    const siteTitle = settings.site_title || "Oisamaye's Portfolio"
+    const siteName = settings?.site_name || "Oisamaye"
+    const siteTitle = settings?.site_title || "Oisamaye's Portfolio"
     const description =
-      settings.site_description || "A passionate Web Developer building beautiful and functional web experiences."
-    const siteUrl = settings.site_url || "https://oisamaye.vercel.app/"
-    const ogImage = settings.og_image || "https://res.cloudinary.com/du2dk0zua/image/upload/v1750166915/hero_ekswna.jpg"
-    const creator = settings.site_creator || "Ovioisa Oisamaye Benjamin"
-    const twitterHandle = settings.twitter_handle || "@ovioisabenjamin"
-    const keywords = settings.seo_keywords
+      settings?.site_description || "A passionate Web Developer building beautiful and functional web experiences."
+    const siteUrl = settings?.site_url || "https://oisamaye.vercel.app/"
+    const ogImage =
+      settings?.og_image || "https://res.cloudinary.com/du2dk0zua/image/upload/v1750166915/hero_ekswna.jpg"
+    const creator = settings?.site_creator || "Ovioisa Oisamaye Benjamin"
+    const twitterHandle = settings?.twitter_handle || "@ovioisabenjamin"
+    const keywords = settings?.seo_keywords
       ? settings.seo_keywords.split(",").map((k) => k.trim())
       : [
           "web developer",
