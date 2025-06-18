@@ -3,50 +3,85 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { siteConfig } from "@/config/site"
+import { getSiteSettings } from "@/lib/cms-db"
 
 const inter = Inter({ subsets: ["latin"] })
 
-export const metadata: Metadata = {
-  title: {
-    default: "Oisamaye's Portfolio",
-    template: `%s - Oisamaye's Portfolio`,
-  },
-  description: "A passionate Web Developer building beautiful and functional web experiences.",
-  keywords: siteConfig.keywords,
-  authors: siteConfig.authors,
-  creator: "Ovioisa Oisamaye Benjamin",
-  metadataBase: siteConfig.metadataBase,
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: siteConfig.url,
-    title: "Oisamaye's Portfolio",
-    description: siteConfig.description,
-    siteName: "Oisamaye's Portfolio",
-    images: [
+// Function to get dynamic metadata from CMS
+async function getMetadata(): Promise<Metadata> {
+  const settings = await getSiteSettings()
+
+  // Fallback values from original siteConfig
+  const siteName = settings.site_name || "Oisamaye"
+  const siteTitle = settings.site_title || "Oisamaye's Portfolio"
+  const description =
+    settings.site_description || "A passionate Web Developer building beautiful and functional web experiences."
+  const siteUrl = settings.site_url || "https://oisamaye.vercel.app/"
+  const ogImage = settings.og_image || "https://res.cloudinary.com/du2dk0zua/image/upload/v1750166915/hero_ekswna.jpg"
+  const creator = settings.site_creator || "Ovioisa Oisamaye Benjamin"
+  const twitterHandle = settings.twitter_handle || "@ovioisabenjamin"
+  const keywords = settings.seo_keywords
+    ? settings.seo_keywords.split(",").map((k) => k.trim())
+    : [
+        "web developer",
+        "frontend developer",
+        "react developer",
+        "next.js developer",
+        "portfolio",
+        "web development",
+        "javascript",
+        "typescript",
+      ]
+
+  return {
+    title: {
+      default: siteTitle,
+      template: `%s - ${siteName}'s Portfolio`,
+    },
+    description,
+    keywords,
+    authors: [
       {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: siteConfig.name,
+        name: creator,
+        url: siteUrl,
       },
     ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Oisamaye's Portfolio",
-    description: siteConfig.description,
-    images: [siteConfig.ogImage],
-    creator: siteConfig.author.twitter,
-  },
-  icons: {
-    icon: "https://res.cloudinary.com/du2dk0zua/image/upload/v1750166915/hero_ekswna.jpg",
-    shortcut: "https://res.cloudinary.com/du2dk0zua/image/upload/v1750166915/hero_ekswna.jpg",
-    apple: "https://res.cloudinary.com/du2dk0zua/image/upload/v1750166915/hero_ekswna.jpg",
-  },
-  manifest: "/site.webmanifest",
-    generator: 'v0.dev'
+    creator,
+    openGraph: {
+      type: "website",
+      locale: "en_US",
+      url: siteUrl,
+      title: siteTitle,
+      description,
+      siteName: siteName,
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: `${siteName}'s Portfolio`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: siteTitle,
+      description,
+      images: [ogImage],
+      creator: twitterHandle,
+    },
+    icons: {
+      icon: "/favicon.ico",
+      shortcut: "/favicon-16x16.png",
+      apple: "/apple-touch-icon.png",
+    },
+    manifest: "/site.webmanifest",
+    metadataBase: new URL(siteUrl),
+  }
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  return await getMetadata()
 }
 
 export default function RootLayout({
@@ -64,3 +99,7 @@ export default function RootLayout({
     </html>
   )
 }
+
+export const metadata = {
+      generator: 'v0.dev'
+    };
